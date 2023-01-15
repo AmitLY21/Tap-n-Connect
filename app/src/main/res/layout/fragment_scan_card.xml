@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ScanCardFragment">
+
+    <TextView
+        android:id="@+id/lblScannerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Scanner"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:fontFamily="@font/montserrat"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/radar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/scanner"
+        android:focusable="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/nfc_down"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        android:visibility="gone"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/nfc_down"
+        android:focusable="true" />
+</FrameLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Tap-n-Connect</string>
+    <string name="welcome_to_tap_n_connect">Welcome to Tap-n-Connect</string>
+    <string name="create_card">Create Card</string>
+    <string name="scan_card">Scan Card</string>
+    <string name="view_cards">View Cards</string>
+    <string name="a_simple_app_that_allows_you_to_create_scan_and_share_your_business_card_with_just_one_tap">A simple app that allows you to create, scan and share your business card with just one tap</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="website">Website</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="job_title">Job Title</string>
+    <string name="company">Company</string>
+    <string name="name">Name</string>
+    <string name="all_business_cards">All Business Cards</string>
+</resources>
