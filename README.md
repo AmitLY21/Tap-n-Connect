@@ -16,3 +16,8 @@ Plus, with our app's sleek and user-friendly design, managing your cards has nev
 Say goodbye to cluttered wallets and hello to a more efficient way of networking with Tap-n-Connect. 🚀
 
 Don't wait any longer, download Tap-n-Connect now and start connecting like a pro! 💼
+
+#### Application Icon:
+<p align="left">
+  <img src="https://user-images.githubusercontent.com/62396197/212533913-293eefad-920b-4619-9e65-c02fd33550b1.png" width="150" height="150">
+</p>
