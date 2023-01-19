@@ -1,5 +1,5 @@
 # Tap-n-Connect 🤝
-Welcome to the ultimate business card exchange app. With Tap-n-Connect, you can easily create and share your own digital business card, and quickly save the cards of others with just a tap.
+Welcome to Tap-n-Connect, the ultimate business card exchange app. With our app, you can easily create and share your own digital business card, and quickly save the cards of others with just a scan.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62396197/212533748-fc3f5fde-9d52-4c1a-b967-1adcc9447c1e.png" width="200">
@@ -7,9 +7,10 @@ Welcome to the ultimate business card exchange app. With Tap-n-Connect, you can 
   <img src="https://user-images.githubusercontent.com/62396197/212533756-971eb230-ac70-4c8d-bb63-c29bc470893f.png" width="200">
 </p>
 
-First, create your own custom business card, including your name, job title, phone number, email, company, address, and website.
+First, create your own custom business card, including your name, job title, phone number, email, company, address, and website. 
 
-Then, share your card with others by tapping your phone to theirs. You can also scan their card using NFC technology. Your scanned cards will be automatically saved to your list, where you can easily view, add to contacts, start a WhatsApp chat, and even visit their website.
+Then, share your card with others by generating a QR code and sharing it with them. They can then scan the QR code using our built-in scanner. 
+Easily manage and access all scanned cards with our powerful list feature, including the ability to share, add to contacts, start WhatsApp chats, and visit their website. Plus, remove cards you no longer need.
 
 Say goodbye to cluttered wallets and forgotten business cards. With Tap-n-Connect, you'll always have the information you need at your fingertips. 
 Try it out now and experience the convenience for yourself! 🚀
@@ -17,7 +18,7 @@ Try it out now and experience the convenience for yourself! 🚀
 ## Features:
 <ul>
 <li>Create your own custom business card</li>
-<li>Share your card via NFC</li>
+<li>Share your card via QR code</li>
 <li>Scan and save the cards of others</li>
 <li>View your list of saved cards</li>
 <li>Easily add cards to your contacts</li>
