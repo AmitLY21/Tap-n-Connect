@@ -1,4 +1,4 @@
-package com.amitdev.tap_n_connect
+package com.amitdev.tap_n_connect.common
 
 import android.app.Activity
 import android.app.AlertDialog

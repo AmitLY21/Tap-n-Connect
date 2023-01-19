@@ -1,10 +1,9 @@
-package com.amitdev.tap_n_connect
+package com.amitdev.tap_n_connect.common
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.Log
@@ -15,13 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.amitdev.tap_n_connect.QRGenerator
+import com.amitdev.tap_n_connect.R
 import com.amitdev.tap_n_connect.databinding.FragmentViewCardsBinding
-import com.amitdev.tap_n_connect.placeholder.PlaceholderContent.PlaceholderItem
+import com.google.gson.Gson
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyCardRecyclerViewAdapter(
     private val cardList: List<Card>
 ) : RecyclerView.Adapter<MyCardRecyclerViewAdapter.ViewHolder>() {
@@ -83,11 +80,23 @@ class MyCardRecyclerViewAdapter(
             if (item.website.isNotEmpty()) {
                 openWebsite(it.context, item.website)
                 Toast.makeText(context, "Opened Website", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 Toast.makeText(context, "Does not have a website link!", Toast.LENGTH_SHORT).show()
 
             }
+        }
+        val shareCard = dialogView.findViewById<TextView>(R.id.share_card)
+        shareCard.setOnClickListener {
+            val gson = Gson()
+            QRGenerator.generateQR(it.context,gson.toJson(item,Card::class.java))
+        }
 
+        val removeCard = dialogView.findViewById<TextView>(R.id.remove_card)
+        removeCard.setOnClickListener {
+            val sharedPreferencesHelper = SharedPreferencesHelper(it.context)
+            val index = sharedPreferencesHelper.removeCard(item)
+            notifyItemRemoved(index)
+            Toast.makeText(context, "Card removed. Please refresh the view to see the changes.", Toast.LENGTH_SHORT).show()
         }
 
         val alertDialog = dialogBuilder.create()

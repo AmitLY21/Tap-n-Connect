@@ -1,16 +1,17 @@
-package com.amitdev.tap_n_connect
+package com.amitdev.tap_n_connect.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.amitdev.tap_n_connect.R
+import com.amitdev.tap_n_connect.common.Card
+import com.amitdev.tap_n_connect.common.MyCardRecyclerViewAdapter
+import com.amitdev.tap_n_connect.common.SharedPreferencesHelper
 
 /**
  * A fragment representing a list of Items.
@@ -45,7 +46,6 @@ class ViewCardsFragment : Fragment() {
                 adapter = MyCardRecyclerViewAdapter(cardList = cardList)
             }
         }
-
 
         return view
     }
@@ -98,7 +98,7 @@ class ViewCardsFragment : Fragment() {
         val cards = sharedPreferencesHelper.getCards().toMutableList()
 //        cards.addAll(dummyCardList)
 //        sharedPreferencesHelper.saveCards(cards)
-//        Log.d("Tappy", "getCardListFromSP: ${cards}")
+        //Log.d("Tappy", "getCardListFromSP: ${cards}")
         return cards
 
     }

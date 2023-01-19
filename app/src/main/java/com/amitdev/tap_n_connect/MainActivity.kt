@@ -1,8 +1,16 @@
 package com.amitdev.tap_n_connect
 
 import android.Manifest.permission.*
+import android.content.pm.PackageManager
+import android.nfc.NfcAdapter
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.amitdev.tap_n_connect.common.ManagePermissions
+import com.amitdev.tap_n_connect.fragments.CreateCardFragment
+import com.amitdev.tap_n_connect.fragments.HomeFragment
+import com.amitdev.tap_n_connect.fragments.ScanCardFragment
+import com.amitdev.tap_n_connect.fragments.ViewCardsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -10,14 +18,13 @@ class MainActivity : AppCompatActivity() {
     private val PermissionsRequestCode = 123
     private lateinit var managePermissions: ManagePermissions
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val list = listOf<String>(NFC, INTERNET, WRITE_CONTACTS)
+        val list = listOf<String>(NFC, INTERNET, WRITE_CONTACTS, CAMERA)
         managePermissions = ManagePermissions(this, list, PermissionsRequestCode)
         managePermissions.checkPermissions()
-
         val bottomNavBar = findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
 
         bottomNavBar.setOnItemSelectedListener { item ->
@@ -59,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
 }
 

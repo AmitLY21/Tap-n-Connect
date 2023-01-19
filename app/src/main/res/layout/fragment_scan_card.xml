@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ScanCardFragment">
+    tools:context=".fragments.ScanCardFragment">
 
     <TextView
         android:id="@+id/lblScannerTitle"
@@ -12,27 +12,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_gravity="center_horizontal"
-        android:text="Scanner"
+        android:text="QR Scanner"
         android:textStyle="bold"
         android:textSize="24sp"
         android:fontFamily="@font/montserrat"/>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/radar"
+        android:id="@+id/qrscan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/scanner"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/qrscan"
         android:focusable="true" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/nfc_down"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:lottie_autoPlay="true"
-        android:visibility="gone"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/nfc_down"
-        android:focusable="true" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnScan"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:text="Start Scanning"
+        android:textSize="18sp"
+        />
 </FrameLayout>

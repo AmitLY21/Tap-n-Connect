@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
-        android:name="com.amitdev.tap_n_connect.HomeFragment"
+        android:name="com.amitdev.tap_n_connect.fragments.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"

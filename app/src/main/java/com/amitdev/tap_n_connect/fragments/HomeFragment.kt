@@ -1,19 +1,21 @@
-package com.amitdev.tap_n_connect
+@file:Suppress("DEPRECATION")
+
+package com.amitdev.tap_n_connect.fragments
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.Intent
-import android.nfc.NdefMessage
-import android.nfc.NdefRecord
-import android.nfc.NfcAdapter
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import com.amitdev.tap_n_connect.QRGenerator
+import com.amitdev.tap_n_connect.R
+import com.amitdev.tap_n_connect.common.Card
+import com.amitdev.tap_n_connect.common.SharedPreferencesHelper
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 
@@ -27,11 +29,18 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : DialogFragment() {
+    val gson = Gson()
+
+    companion object {
+        val TAG = HomeFragment::class.java.simpleName
+        fun newInstance(): HomeFragment {
+            return HomeFragment()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -46,20 +55,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val btnShareCard = view.findViewById<MaterialButton>(R.id.btnShare)
-        val sharedPreferencesHelper: SharedPreferencesHelper? = SharedPreferencesHelper(requireContext())
+        val sharedPreferencesHelper: SharedPreferencesHelper? =
+            SharedPreferencesHelper(requireContext())
         btnShareCard.setOnClickListener {
             showAndTransferCardDialog(sharedPreferencesHelper)
         }
     }
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-
-            }
-    }
 
     @SuppressLint("SetTextI18n")
     private fun showAndTransferCardDialog(sharedPreferencesHelper: SharedPreferencesHelper?) {
@@ -85,7 +87,9 @@ class HomeFragment : Fragment() {
 
             builder.setTitle("Card Info")
                 .setPositiveButton("SHARE") { _, _ ->
-                    transferCardDetailsViaNFC(card)
+                    QRGenerator.generateQR(requireContext(),gson.toJson(card,Card::class.java))
+                    Toast.makeText(requireContext(), "Tap to Connect!", Toast.LENGTH_SHORT).show()
+
                 }
             val dialog = builder.create()
             dialog.show()
@@ -97,34 +101,6 @@ class HomeFragment : Fragment() {
             }
             val alertDialog = builder.create()
             alertDialog.show()
-
-        }
-    }
-
-
-
-
-
-    private fun transferCardDetailsViaNFC(card: Card) {
-        val nfcAdapter = NfcAdapter.getDefaultAdapter(requireContext())
-        if (nfcAdapter != null && nfcAdapter.isEnabled) {
-            val cardJson = Gson().toJson(card) // Convert the card object to JSON
-            val ndefMessage =
-                NdefMessage(NdefRecord.createMime("application/json", cardJson.toByteArray()))
-
-            // Set the NDEF message to the NFC adapter
-            nfcAdapter.setNdefPushMessage(ndefMessage, requireActivity())
-            Toast.makeText(
-                requireContext(),
-                "Card details transferred via NFC.",
-                Toast.LENGTH_SHORT
-            ).show()
-        } else {
-            Toast.makeText(requireContext(), "NFC is not enabled. Redirects to Settings", Toast.LENGTH_SHORT).show()
-            Thread.sleep(1500)
-            val intent = Intent(Settings.ACTION_NFC_SETTINGS)
-            val REQUEST_CODE_NFC = 0
-            startActivityForResult(intent, REQUEST_CODE_NFC)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.amitdev.tap_n_connect
+package com.amitdev.tap_n_connect.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.amitdev.tap_n_connect.common.Card
+import com.amitdev.tap_n_connect.R
+import com.amitdev.tap_n_connect.common.SharedPreferencesHelper
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
