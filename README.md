@@ -3,9 +3,10 @@ Welcome to Tap-n-Connect, the ultimate business card exchange app. With our app,
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62396197/212533748-fc3f5fde-9d52-4c1a-b967-1adcc9447c1e.png" width="200">
-  <img src="https://user-images.githubusercontent.com/62396197/212533754-b67cd700-e98a-4bcb-a2f4-bb48f92c0161.png" width="200">
-  <img src="https://user-images.githubusercontent.com/62396197/212533756-971eb230-ac70-4c8d-bb63-c29bc470893f.png" width="200">
+  <img src="https://user-images.githubusercontent.com/62396197/213414250-10524899-7ea0-4ee1-8cc3-4d93440c45f6.png" width="200">
+  <img src="https://user-images.githubusercontent.com/62396197/213414265-7babd744-1530-42f9-ba0d-157392f173b9.png" width="200">
 </p>
+
 
 First, create your own custom business card, including your name, job title, phone number, email, company, address, and website. 
 
